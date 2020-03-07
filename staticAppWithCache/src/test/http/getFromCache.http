@@ -1,0 +1,3 @@
+GET http://localhost:8080/cache/xxxy
+If-None-Match: "037c31941f72a5ff32369eb67cf4134cbfbee84a2643940b38e93196fde1316f0"
+If-Modified-Since: Mon, 19 Jan 1970 07:53:05 GMT
