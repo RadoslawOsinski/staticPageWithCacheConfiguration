@@ -1,0 +1,26 @@
+# run this with: "  CURRENT_UID=$(id -u):$(id -g) docker-compose build && docker-compose up ""
+version: '3'
+services:
+
+  staticappwithcache:
+    build:
+      context: ../..
+      dockerfile: staticAppWithCache/src/docker/Dockerfile
+    container_name: staticappwithcache
+    hostname: staticappwithcache
+#    ports:
+#      #  behind reverse proxy
+#      - "8080:8080"
+#    environment:
+    depends_on:
+      - staticappwithcachecaddy
+
+  staticappwithcachecaddy:
+    build:
+      context: ../..
+      dockerfile: staticAppWithCacheCaddy/src/docker/Dockerfile
+    image: caddy/caddy:alpine
+    container_name: staticappwithcachecaddy
+    hostname: staticappwithcachecaddy
+    ports:
+      - 8443:8443

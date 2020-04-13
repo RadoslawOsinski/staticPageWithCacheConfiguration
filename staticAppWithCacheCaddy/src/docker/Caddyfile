@@ -1,0 +1,9 @@
+staticappwithcache.devcwsfe.pl:8443 {
+
+    tls /etc/caddy/certs/staticappwithcache.devcwsfe.pl/cert.pem /etc/caddy/certs/staticappwithcache.devcwsfe.pl/key.pem
+
+    reverse_proxy {
+        to staticappwithcache:8080
+    }
+
+}
